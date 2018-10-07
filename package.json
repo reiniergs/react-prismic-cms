@@ -1,0 +1,36 @@
+{
+    "name": "react-prismic-cms",
+    "version": "0.1.0",
+    "main": "components/index.js",
+    "dependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "prismic-javascript": "^1.5.0",
+        "prop-types": "^15.6.2",
+        "react": "^16.5.2",
+        "react-dom": "^16.5.2",
+        "react-json-view": "^1.19.1",
+        "react-scripts": "2.0.4",
+        "react-styleguidist": "^7.3.9"
+    },
+    "scripts": {
+        "start": "npx styleguidist server",
+        "build": "npx styleguidist build",
+        "build:components": "npx babel ./src --out-dir ./",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "prepublishOnly": "yarn clean && yarn build:components",
+        "clean": "rm -Rf components"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": [
+        ">0.2%",
+        "not dead",
+        "not ie <= 11",
+        "not op_mini all"
+    ]
+}
