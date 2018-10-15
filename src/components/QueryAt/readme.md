@@ -1,8 +1,8 @@
 example:
     
     
-    <Prismic repo="react-rainbow-prismic">
-        <QueryAt path="document.type" value="vestable" component={
+    <Prismic repo="react-prismic-cms">
+        <QueryAt path="document.type" value="vegetables" component={
             (props) => {
                 if (props.response.results) {
                     return (
