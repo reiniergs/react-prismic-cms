@@ -11,5 +11,11 @@ module.exports = {
             sectionDepth: 1,
             usageMode: 'expand',
         },
+        {
+            name: 'Examples',
+            components: 'src/library/**/index.js',
+            sectionDepth: 1,
+            usageMode: 'expand',
+        },
     ],
 };

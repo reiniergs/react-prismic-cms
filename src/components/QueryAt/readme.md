@@ -1,23 +1,11 @@
-example:
-    
-    
+all vegetables:
+
     <Prismic repo="react-prismic-cms">
-        <QueryAt path="document.type" value="vegetables" component={
-            (props) => {
-                if (props.response.results) {
-                    return (
-                            <div>
-                                <h1>{props.response.results[0].data.name[0].text}</h1>
-                                <img src={props.response.results[0].data.image.url} />
-                                <p>{props.response.results[0].data.description[0].text}</p>
-                            </div>               
-                        )
-                }
-                return null;
-            }    
-        } />
+        <QueryAt path="document.type" value="vegetables" component={VegetablesCard} />
     </Prismic>
-    
-        
-    
-                 
+
+red vegetables:
+
+    <Prismic repo="react-prismic-cms">
+        <QueryAt path="document.tags" value={['red']} component={VegetablesCard} />
+    </Prismic>

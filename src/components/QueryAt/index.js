@@ -17,16 +17,16 @@ class QueryAtImplementation extends Component {
         super(props);
         this.state = {
             isLoading: false,
-            response: {},
+            results: [],
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.fetch();
     }
 
     componentDidUpdate(prevProps) {
-        const { prevPath, prevValue } = prevProps;
+        const { path: prevPath, value: prevValue } = prevProps;
         const { path, value } = this.props;
         if (prevPath !== path || prevValue !== value) {
             this.fetch();
@@ -45,16 +45,15 @@ class QueryAtImplementation extends Component {
                 Prismic.Predicates.at(path, value),
             );
         }).then((response) => {
-            this.setState({ response });
+            this.setState({ results: response.results });
         });
     }
 
     render() {
-        const { response } = this.state;
+        const { results } = this.state;
         const { component: Component } = this.props;
-        return <Component response={response} />;
+        return <Component results={results} />;
     }
-
 }
 
 QueryAt.propTypes = {
@@ -62,7 +61,6 @@ QueryAt.propTypes = {
     value: PropTypes.any,
     component: PropTypes.func,
 };
-
 
 QueryAt.defaultProps = {
     value: '',
