@@ -9,5 +9,3 @@ export default function Prismic(props) {
         </Context.Provider>
     );
 }
-
-

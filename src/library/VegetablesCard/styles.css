@@ -1,0 +1,70 @@
+.prismic-cms-card {
+    background-color: #fafafb;
+    border-radius: 14px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    border: solid 1px #dddbda;
+    width: 100%;
+}
+
+.prismic-cms-card_header {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 14px 14px 0 0;
+    box-shadow: 0 1px 0 0 #e3e5ed;
+    color: #1ad1a3;
+    font-size: 18px;
+    height: 48px;
+    padding: 0 14px;
+}
+
+.prismic-cms-card_content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #fafafb;
+    border-radius: 0 0 14px 14px;
+    padding-top: 32px;
+}
+
+.prismic-cms-vegetables-card {
+    border-radius: 14px;
+    box-shadow: 0 1px 2px 0 #e3e5ed;
+    border: solid 1px #e3e5ed;
+    background-color: #ffffff;
+    width: 240px;
+    height: 300px;
+    margin: 0 12px 24px 12px;
+}
+
+.prismic-cms-vegetables-card_img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid 1px #e3e5ed;
+    padding: 32px 48px 16px 48px;
+    height: 165px;
+}
+
+.prismic-cms-vegetables-card_img {
+    height: 100%;
+    width: 100%;
+}
+
+.prismic-cms-vegetables-card_description-container {
+    padding: 8px 12px 12px 12px;
+}
+
+.prismic-cms-vegetables-card_header {
+    font-size: 20px;
+    color: #061c3f;
+    margin: 0;
+}
+
+.prismic-cms-vegetables-card_description {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #576574;
+    margin: 0;
+    margin-top: 4px;
+}
