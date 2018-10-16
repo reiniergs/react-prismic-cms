@@ -17,7 +17,7 @@ class QueryAtImplementation extends Component {
         super(props);
         this.state = {
             isLoading: false,
-            results: [],
+            response: {},
         }
     }
 
@@ -40,19 +40,22 @@ class QueryAtImplementation extends Component {
             value,
         } = this.props;
 
+        this.setState({ isLoading: true })
+
         Prismic.getApi(`https://${repo}.prismic.io/api/v2`).then((api) => {
             return api.query(
                 Prismic.Predicates.at(path, value),
             );
         }).then((response) => {
-            this.setState({ results: response.results });
+            this.setState({ response, isLoading: false });
         });
     }
 
     render() {
-        const { results } = this.state;
-        const { component: Component } = this.props;
-        return <Component results={results} />;
+        const { response, isLoading } = this.state;
+        const { component: Component, ...rest } = this.props;
+
+        return <Component {...rest} response={response} isLoading={isLoading} />;
     }
 }
 
