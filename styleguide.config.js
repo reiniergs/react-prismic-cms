@@ -1,6 +1,10 @@
 /* eslint-disable */
+const withRainbowStyles = require('react-rainbow-styleguide');
+const version = require('./package.json').version;
 
-module.exports = {
+module.exports = withRainbowStyles({
+    version,
+    title: 'react-prismic-cms',
     ignore: ['**/__tests__/**', '/node_modules/**'],
     skipComponentsWithoutExample: true,
     pagePerSection: true,
@@ -18,4 +22,4 @@ module.exports = {
             usageMode: 'expand',
         },
     ],
-};
+});
