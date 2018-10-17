@@ -56,7 +56,7 @@ class Query extends Component {
     fetch() {
         const { repo } = this.props;
 
-        this.setState({ isLoading: true })
+        this.setState({ isLoading: true });
 
         Prismic.getApi(`https://${repo}.prismic.io/api/v2`).then((api) => {
             return api.query(
