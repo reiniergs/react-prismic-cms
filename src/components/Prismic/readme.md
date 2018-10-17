@@ -1,3 +1,5 @@
-example: 
+vegetables:
 
-    <h1>example</h1>
+    <Prismic repo="react-prismic-cms">
+        <QueryAt path="document.type" value="vegetables" component={ExampleCard} title="Vegetables" />
+    </Prismic>
