@@ -10,13 +10,13 @@ module.exports = withRainbowStyles({
     pagePerSection: true,
     sections: [
         {
-            name: 'Components',
+            name: 'Query Components',
             components: 'src/components/**/index.js',
             sectionDepth: 1,
             usageMode: 'expand',
         },
         {
-            name: 'Examples',
+            name: 'Docs Components',
             components: 'src/library/**/index.js',
             sectionDepth: 1,
             usageMode: 'expand',
