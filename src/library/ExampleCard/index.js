@@ -14,8 +14,8 @@ function CardItems({ results }) {
             key={id}
             actions={
                 <ButtonIcon
-                variant="border-filled" 
-                icon={<ShareIcon />} />}
+                    variant="border-filled" 
+                    icon={<ShareIcon />} />}
             footer={
                 <div className="prismic-cms-card-item_content">
                     <h1 className="prismic-cms-card-item_header">{data.name[0].text}</h1>
