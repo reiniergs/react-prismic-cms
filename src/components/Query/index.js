@@ -80,7 +80,6 @@ class Query extends Component {
                 ref,
             });
         }).then((response) => {
-            console.log(response)
             this.setState({ response, isLoading: false });
         });
     }
