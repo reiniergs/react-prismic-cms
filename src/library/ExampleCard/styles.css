@@ -21,45 +21,64 @@
 .prismic-cms-card_content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     background-color: #fafafb;
     border-radius: 0 0 14px 14px;
     padding-top: 32px;
 }
 
+.prismic-cms-card_content .prismic-cms-card-item {
+    margin-bottom: 32px;
+}
+
 .prismic-cms-card-item {
-    border-radius: 14px;
-    box-shadow: 0 1px 2px 0 #e3e5ed;
-    border: solid 1px #e3e5ed;
-    background-color: #ffffff;
-    width: 240px;
-    height: 300px;
-    margin: 0 12px 24px 12px;
+    width: 250px;
+    font-family: Lato;
 }
 
 .prismic-cms-card-item_img-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: solid 1px #e3e5ed;
-    padding: 32px 48px 16px 48px;
-    height: 165px;
+    height: 120px;
 }
 
-.prismic-cms-card-item_description-container {
-    padding: 8px 12px 12px 12px;
+.prismic-cms-card-item_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .prismic-cms-card-item_header {
     font-size: 20px;
+    font-weight: 500;
     color: #061c3f;
     margin: 0;
+    text-align: justify;
+    align-self: flex-start;
 }
 
 .prismic-cms-card-item_description {
     font-size: 14px;
-    line-height: 1.5;
+    font-weight: 300;
+    text-align: justify;
+    line-height: 1.5em;
     color: #576574;
-    margin: 0;
-    margin-top: 4px;
+    margin: 8px 0;
+    align-self: flex-start;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 3em;
+}
+
+.prismic-cms-card-item_button {
+    border: solid 1px #1ad1a3;
+    color: #1ad1a3;
+    width: 90px;
+}
+
+.prismic-cms-card-item_button:hover, .prismic-cms-card-item_button:focus {
+    border: solid 1px #1cb891;
+    color: #1cb891;
 }
