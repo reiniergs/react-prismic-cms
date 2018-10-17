@@ -54,15 +54,33 @@ class Query extends Component {
     }
 
     fetch() {
-        const { repo } = this.props;
+        const {
+            repo,
+            lang,
+            ref,
+            after,
+            fetch,
+            fetchLinks,
+            orderings,
+            page,
+            pageSize,
+        } = this.props;
 
         this.setState({ isLoading: true });
 
         Prismic.getApi(`https://${repo}.prismic.io/api/v2`).then((api) => {
-            return api.query(
-                this.resolvePredicate(),
-            );
+            return api.query(this.resolvePredicate(), {
+                after,
+                fetch,
+                fetchLinks,
+                lang,
+                orderings,
+                page,
+                pageSize,
+                ref,
+            });
         }).then((response) => {
+            console.log(response)
             this.setState({ response, isLoading: false });
         });
     }
@@ -90,10 +108,28 @@ Query.propTypes = {
     path: PropTypes.string.isRequired,
     value: PropTypes.any,
     component: PropTypes.func,
+    after: PropTypes.string,
+    fetch: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.array,
+    ]),
+    fetchLinks: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.array,
+    ]),
+    orderings: PropTypes.string,
+    page: PropTypes.number,
+    pageSize: PropTypes.number,
 };
 
 Query.defaultProps = {
     predicate: 'at',
     value: '',
-    component: props => <ReactJson src={props.response} />
+    component: props => <ReactJson src={props.response} />,
+    after: undefined,
+    fetch: undefined,
+    fetchLinks: undefined,
+    orderings: undefined,
+    page: 1,
+    pageSize: 20,
 };
