@@ -4,15 +4,27 @@ import PropTypes from 'prop-types';
 import ReactJson from 'react-json-view';
 import Context from './../Prismic/context';
 
-export default function Query(props) {
+const VALID_PREDICATES = [
+    'at',
+    'not',
+    'any',
+    'in',
+    'fulltext',
+    'has',
+    'missing',
+    'similar',
+    'near',
+];
+
+export default function(props) {
     return (
         <Context.Consumer>
-            { context => <QueryImplementation {...context} {...props} /> }
+            { context => <Query {...context} {...props} /> }
         </Context.Consumer>
     );
 }
 
-class QueryImplementation extends Component {
+class Query extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -35,10 +47,10 @@ class QueryImplementation extends Component {
 
     resolvePredicate() {
         const { predicate, path, value } = this.props;
-        if (predicate && typeof predicate === 'string') {
+        if (VALID_PREDICATES.indexOf(predicate) !== -1) {
             return Prismic.Predicates[predicate](path, value);
         }
-        return '';
+        return Prismic.Predicates.at(path, value);
     }
 
     fetch() {
@@ -81,6 +93,7 @@ Query.propTypes = {
 };
 
 Query.defaultProps = {
+    predicate: 'at',
     value: '',
     component: props => <ReactJson src={props.response} />
 };
