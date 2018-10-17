@@ -11,7 +11,11 @@ const ShareIcon = (props) => {
 }
 
 ShareIcon.propTypes = {
-    className: PropTypes.string.isRequired,
+    className: PropTypes.string,
+};
+
+ShareIcon.defaultProps = {
+    className: undefined,
 };
 
 export default ShareIcon;
