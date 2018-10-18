@@ -13,7 +13,6 @@ example:
 
     <div>
         <GlobalHeader title="Broccoli" />
-        <ExampleCard 
-        response={response} />
+        <ExampleCard response={response} />
     </div>
 
