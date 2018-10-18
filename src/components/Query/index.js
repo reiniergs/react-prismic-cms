@@ -31,7 +31,6 @@ class Query extends Component {
         super(props);
         this.state = {
             isLoading: false,
-            response: {},
         }
     }
 
@@ -84,14 +83,22 @@ class Query extends Component {
             });
         }).then((response) => {
             this.setState({ response, isLoading: false });
-        });
+        }).catch((error) => {
+            this.setState({ error, isLoading: false });
+        });;
     }
 
     render() {
-        const { response, isLoading } = this.state;
+        const { response, error, isLoading } = this.state;
         const { component: Component, ...rest } = this.props;
 
-        return <Component {...rest} response={response} isLoading={isLoading} />;
+        return (
+            <Component
+                {...rest}
+                response={response}
+                error={error}
+                isLoading={isLoading} />
+        );
     }
 }
 
