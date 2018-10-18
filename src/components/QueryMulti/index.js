@@ -1,21 +1,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactJson from 'react-json-view';
-import Query from '../Query';
+import Query from './../Query';
 
-export default function QueryAt(props) {
-    return <Query {...props} predicate="at" />;
+const predicatesMap = {
+    QueryAt: 'at',
+    QueryFullText: 'fulltext',
+    QueryNot: 'not',
+    QueryAny: 'any',
+    QueryIn: 'in',
+    QueryHas: 'has',
+    QueryMissing: 'missing',
+    QuerySimilar: 'similar',
 }
 
-QueryAt.propTypes = {
-    /** Defines what the query will be looking for. The different paths available are:
-     * 'document.type', 'document.id', 'document.tags', 'document.first_publication_date',
-     * 'document.last_publication_date' and 'my.{custom-type}.{field}'. The last path is in the format
-     * 'my.{custom-type}.{field}' where {custom-type} is the API ID of the custom type you want to
-     * query and {field} is the API ID of the specific field in the custom type that you need. */
-    path: PropTypes.string.isRequired,
-    /** Defines the value that the query is looking for. */
-    value: PropTypes.any,
+export default function QueryMulti(props) {
+    const { children } = props;
+    const predicates = React.Children.map(children, (child) => {
+        const {
+            type: { name },
+            props: { path, value },
+        } = child;
+
+        if (predicatesMap[name]) {
+            return {
+                predicate: predicatesMap[name],
+                path,
+                value,
+            };
+        }
+    });
+    return <Query {...props} multiPredicates={predicates} />;
+};
+
+QueryMulti.propTypes = {
     /** The componet used to render the queried data. */
     component: PropTypes.func,
     /** It will remove all the documents except for those after the specified document in the list.
@@ -25,16 +43,16 @@ QueryAt.propTypes = {
     after: PropTypes.string,
     /** It is used to make queries faster by only retrieving the specified field(s). */
     fetch: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.array,
+        PropTypes.string,
+        PropTypes.array,
     ]),
     /** It allows you to retrieve a specific content field from a linked document and
      * add it to the document response object.
      * This props needs to take the following format:
      * '{custom-type}.{field}' or ['{custom-type}.{field}', '{other-custom-type}.{field}'] */
     fetchLinks: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.array,
+        PropTypes.string,
+        PropTypes.array,
     ]),
     /** It will order the results by the specified field(s).
      * You can specify as many fields as you want.
@@ -52,10 +70,17 @@ QueryAt.propTypes = {
     /** The pageSize option defines the maximum number of documents that the API will return for your query.
      * This value defaults to 20, max is 100. */
     pageSize: PropTypes.number,
+    /**
+     * This prop should not be visible in the documentation.
+     * @ignore
+     */
+    children: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.node),
+        PropTypes.object,
+    ]),
 };
 
-QueryAt.defaultProps = {
-    value: '',
+QueryMulti.defaultProps = {
     component: props => <ReactJson src={props.response} />,
     after: undefined,
     fetch: undefined,
