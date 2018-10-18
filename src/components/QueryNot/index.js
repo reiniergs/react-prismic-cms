@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactJson from 'react-json-view';
-import Query from './../Query';
+import Query from '../Query';
 
 export default function QueryNot(props) {
     return <Query {...props} predicate="not" />;
@@ -20,8 +20,7 @@ QueryNot.propTypes = {
     component: PropTypes.func,
     /** It will remove all the documents except for those after the specified document in the list.
      * By reversing the orderings in your query, you can use this same method to retrieve all
-     * the documents before the specified document.
-     */
+     * the documents before the specified document. */
     after: PropTypes.string,
     /** It is used to make queries faster by only retrieving the specified field(s). */
     fetch: PropTypes.oneOfType([

@@ -3,16 +3,25 @@
     "version": "0.1.1",
     "main": "components/index.js",
     "dependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-plugin-transform-object-rest-spread": "^6.26.0",
-        "babel-preset-env": "^1.7.0",
-        "babel-preset-react": "^6.24.1",
         "classnames": "^2.2.6",
         "prismic-javascript": "^1.5.0",
         "prop-types": "^15.6.2",
         "react": "^16.5.2",
+        "react-json-view": "^1.19.1"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "eslint": "^5.7.0",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-plugin-import": "^2.14.0",
+        "eslint-plugin-jsx-a11y": "^6.1.2",
+        "eslint-plugin-react": "^7.11.1",
+        "firebase-tools": "^5.1.1",
+        "pre-push": "^0.1.1",
         "react-dom": "^16.5.2",
-        "react-json-view": "^1.19.1",
         "react-rainbow-components": "^0.5.0",
         "react-rainbow-styleguide": "^1.0.1",
         "react-scripts": "2.0.4",
@@ -23,9 +32,11 @@
         "build": "npx styleguidist build",
         "build:components": "npx babel ./src --out-dir ./",
         "test": "react-scripts test",
+        "lint": "eslint src",
         "eject": "react-scripts eject",
         "prepublishOnly": "yarn clean && yarn build:components",
-        "clean": "rm -Rf components"
+        "clean": "rm -Rf components",
+        "deploy": "yarn build && firebase deploy"
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -35,5 +46,9 @@
         "not dead",
         "not ie <= 11",
         "not op_mini all"
+    ],
+    "license": "MIT",
+    "pre-push": [
+        "lint"
     ]
 }

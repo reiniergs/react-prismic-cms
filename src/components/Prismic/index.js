@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import Context from './context';
 
 export default function Prismic(props) {
-    const { repo, ref, lang, children } = props;
+    const {
+        repo,
+        ref,
+        lang,
+        children,
+    } = props;
+
     return (
         <Context.Provider value={{ repo, ref, lang }}>
             {children}
@@ -23,7 +29,7 @@ Prismic.propTypes = {
      * If no lang is provided, then the query will default to
      * the master language of the repository.
      * You can also pass the wilcard value * to specify that you want to query
-     * documents in all available languages. **/
+     * documents in all available languages. * */
     lang: PropTypes.string,
     /**
      * This prop should not be visible in the documentation.
@@ -33,11 +39,11 @@ Prismic.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.object,
     ]),
-}
+};
 
 Prismic.defaultProps = {
     repo: undefined,
     ref: undefined,
     lang: undefined,
     children: null,
-}
+};

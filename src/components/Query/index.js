@@ -18,7 +18,7 @@ const VALID_PREDICATES = [
     'near',
 ];
 
-export default function(props) {
+export default function (props) {
     return (
         <Context.Consumer>
             { context => <Query {...context} {...props} /> }
@@ -43,6 +43,7 @@ class Query extends Component {
             this.fetch();
         }
     }
+
 
     resolvePredicate() {
         const { predicate, path, value, multiPredicates } = this.props;
@@ -85,7 +86,7 @@ class Query extends Component {
             this.setState({ response, isLoading: false });
         }).catch((error) => {
             this.setState({ error, isLoading: false });
-        });;
+        });
     }
 
     render() {
@@ -144,4 +145,4 @@ Query.defaultProps = {
     page: 1,
     pageSize: 20,
     multiPredicates: undefined,
-};
+}

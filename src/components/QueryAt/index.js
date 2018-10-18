@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactJson from 'react-json-view';
-import Query from './../Query';
+import Query from '../Query';
 
 export default function QueryAt(props) {
     return <Query {...props} predicate="at" />;
@@ -25,16 +25,16 @@ QueryAt.propTypes = {
     after: PropTypes.string,
     /** It is used to make queries faster by only retrieving the specified field(s). */
     fetch: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.array,
+      PropTypes.string,
+      PropTypes.array,
     ]),
     /** It allows you to retrieve a specific content field from a linked document and
      * add it to the document response object.
      * This props needs to take the following format:
      * '{custom-type}.{field}' or ['{custom-type}.{field}', '{other-custom-type}.{field}'] */
     fetchLinks: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.array,
+      PropTypes.string,
+      PropTypes.array,
     ]),
     /** It will order the results by the specified field(s).
      * You can specify as many fields as you want.
