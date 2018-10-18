@@ -10,22 +10,29 @@
         "react-json-view": "^1.19.1"
     },
     "devDependencies": {
-        "react-rainbow-components": "^0.5.0",
-        "react-rainbow-styleguide": "^1.0.1",
-        "react-scripts": "2.0.4",
-        "react-styleguidist": "^7.3.9",
         "babel-cli": "^6.26.0",
         "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "babel-preset-env": "^1.7.0",
         "babel-preset-react": "^6.24.1",
+        "eslint": "^5.7.0",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-plugin-import": "^2.14.0",
+        "eslint-plugin-jsx-a11y": "^6.1.2",
+        "eslint-plugin-react": "^7.11.1",
         "firebase-tools": "^5.1.1",
-        "react-dom": "^16.5.2"
+        "pre-push": "^0.1.1",
+        "react-dom": "^16.5.2",
+        "react-rainbow-components": "^0.5.0",
+        "react-rainbow-styleguide": "^1.0.1",
+        "react-scripts": "2.0.4",
+        "react-styleguidist": "^7.3.9"
     },
     "scripts": {
         "start": "npx styleguidist server",
         "build": "npx styleguidist build",
         "build:components": "npx babel ./src --out-dir ./",
         "test": "react-scripts test",
+        "lint": "eslint src",
         "eject": "react-scripts eject",
         "prepublishOnly": "yarn clean && yarn build:components",
         "clean": "rm -Rf components",
@@ -40,5 +47,8 @@
         "not ie <= 11",
         "not op_mini all"
     ],
-    "license": "MIT"
+    "license": "MIT",
+    "pre-push": [
+        "lint"
+    ]
 }
