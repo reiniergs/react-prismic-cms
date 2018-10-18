@@ -11,4 +11,9 @@ example:
         }]
     };
 
-    <ExampleCard title="Broccoli" response={response} />
+    <div>
+        <GlobalHeader title="Broccoli" />
+        <ExampleCard 
+        response={response} />
+    </div>
+

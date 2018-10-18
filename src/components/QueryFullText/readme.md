@@ -4,7 +4,8 @@ full text example:
 
     const inputStyle = {
         maxWidth: 200,
-        marginBottom: 24,
+        marginTop: 24,
+        marginLeft: 48,
     };
 
     class FullTextExample extends React.Component {
@@ -20,6 +21,7 @@ full text example:
 
             return (
                 <div>
+                    <GlobalHeader title="vegetables" />
                     <Input
                         style={inputStyle}
                         placeholder="Search"
@@ -30,8 +32,7 @@ full text example:
                         <QueryFullText
                             path="document"
                             value={value}
-                            component={ExampleCard}
-                            title="Search" />
+                            component={ExampleCard} />
 
                     </Prismic>
                 </div>
@@ -48,7 +49,8 @@ fruits full text:
 
     const inputStyle = {
         maxWidth: 200,
-        marginBottom: 24,
+        marginTop: 24,
+        marginLeft: 48,
     };
 
     class FullTextExample extends React.Component {
@@ -64,6 +66,7 @@ fruits full text:
 
             return (
                 <div>
+                    <GlobalHeader title="fruits" />
                     <Input
                         style={inputStyle}
                         placeholder="Fruit Search"
@@ -74,8 +77,7 @@ fruits full text:
                         <QueryFullText
                             path="my.fruits.name"
                             value={value}
-                            component={ExampleCard}
-                            title="Search" />
+                            component={ExampleCard} />
 
                     </Prismic>
                 </div>

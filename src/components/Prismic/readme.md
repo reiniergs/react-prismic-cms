@@ -1,5 +1,7 @@
-vegetables:
+vegetables
 
+    <GlobalHeader title="vegetables" />
     <Prismic repo="react-prismic-cms">
-        <QueryAt path="document.type" value="vegetables" component={ExampleCard} title="Vegetables" />
+        <QueryAt path="document.type" value="vegetables" component={ExampleCard} />
     </Prismic>
+
