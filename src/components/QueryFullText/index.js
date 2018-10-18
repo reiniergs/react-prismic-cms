@@ -4,7 +4,7 @@ import ReactJson from 'react-json-view';
 import Query from './../Query';
 
 export default function QueryFullText(props) {
-    return <Query {...props} predicate="fulltext" />
+    return <Query {...props} predicate="fulltext" />;
 }
 
 QueryFullText.propTypes = {

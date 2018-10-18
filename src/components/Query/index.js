@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import Prismic from 'prismic-javascript';
 import PropTypes from 'prop-types';
+import Prismic from 'prismic-javascript';
 import ReactJson from 'react-json-view';
 import Context from './../Prismic/context';
+import resolveMultiPredicates from './resolve-multi-predicates';
+import shouldFetch from './should-fetch';
 
 const VALID_PREDICATES = [
     'at',
@@ -38,15 +40,16 @@ class Query extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        const { path: prevPath, value: prevValue } = prevProps;
-        const { path, value } = this.props;
-        if (prevPath !== path || prevValue !== value) {
+        if (shouldFetch(prevProps, this.props)) {
             this.fetch();
         }
     }
 
     resolvePredicate() {
-        const { predicate, path, value } = this.props;
+        const { predicate, path, value, multiPredicates } = this.props;
+        if (multiPredicates) {
+            return resolveMultiPredicates(multiPredicates);
+        }
         if (VALID_PREDICATES.indexOf(predicate) !== -1) {
             return Prismic.Predicates[predicate](path, value);
         }
@@ -104,7 +107,7 @@ Query.propTypes = {
         'similar',
         'near',
     ]),
-    path: PropTypes.string.isRequired,
+    path: PropTypes.string,
     value: PropTypes.any,
     component: PropTypes.func,
     after: PropTypes.string,
@@ -119,10 +122,12 @@ Query.propTypes = {
     orderings: PropTypes.string,
     page: PropTypes.number,
     pageSize: PropTypes.number,
+    multiPredicates: PropTypes.array,
 };
 
 Query.defaultProps = {
     predicate: 'at',
+    path: 'document.type',
     value: '',
     component: props => <ReactJson src={props.response} />,
     after: undefined,
@@ -131,4 +136,5 @@ Query.defaultProps = {
     orderings: undefined,
     page: 1,
     pageSize: 20,
+    multiPredicates: undefined,
 };

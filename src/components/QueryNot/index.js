@@ -4,7 +4,7 @@ import ReactJson from 'react-json-view';
 import Query from './../Query';
 
 export default function QueryNot(props) {
-    return <Query {...props} predicate="not" />
+    return <Query {...props} predicate="not" />;
 }
 
 QueryNot.propTypes = {
