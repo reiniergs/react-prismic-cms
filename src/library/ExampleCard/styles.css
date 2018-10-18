@@ -2,8 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    background-color: #fafafb;
-    border-radius: 14px;
     padding: 32px 24px 0 24px;
 }
 
