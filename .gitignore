@@ -10,6 +10,7 @@
 /build
 components
 !src/components
+styleguide
 
 # misc
 .DS_Store
