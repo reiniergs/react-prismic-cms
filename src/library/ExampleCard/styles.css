@@ -1,30 +1,10 @@
-.prismic-cms-card {
-    background-color: #fafafb;
-    border-radius: 14px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
-    border: solid 1px #dddbda;
-    width: 100%;
-}
-
-.prismic-cms-card_header {
-    display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    border-radius: 14px 14px 0 0;
-    box-shadow: 0 1px 0 0 #e3e5ed;
-    color: #1ad1a3;
-    font-size: 18px;
-    height: 48px;
-    padding: 0 14px;
-}
-
 .prismic-cms-card_content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     background-color: #fafafb;
-    border-radius: 0 0 14px 14px;
-    padding-top: 32px;
+    border-radius: 14px;
+    padding: 32px 24px 0 24px;
 }
 
 .prismic-cms-card_content .prismic-cms-card-item {

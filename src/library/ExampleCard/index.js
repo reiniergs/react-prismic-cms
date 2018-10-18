@@ -34,19 +34,14 @@ function CardItems({ results }) {
 }
 
 export default function ExampleCard(props) {
-    const { className, style, title, response } = props;
+    const { className, style, response } = props;
 
-    const getContainerClassNames = () => classnames('prismic-cms-card', className);
+    const getContainerClassNames = () => classnames('prismic-cms-card_content', className);
 
     if (response && Array.isArray(response.results)) {
         return (
             <div className={getContainerClassNames()} style={style}>
-                <div className="prismic-cms-card_header">
-                    <span>{title}</span>
-                </div>
-                <div className="prismic-cms-card_content">
-                    <CardItems results={response.results} />
-                </div>
+                <CardItems results={response.results} />
             </div>
         );
     }
@@ -56,13 +51,11 @@ export default function ExampleCard(props) {
 ExampleCard.propTypes = {
     className: PropTypes.string,
     style: PropTypes.object,
-    title: PropTypes.node,
     response: PropTypes.object,
 };
 
 ExampleCard.defaultProps = {
     className: undefined,
     style: undefined,
-    title: null,
     response: null,
 };

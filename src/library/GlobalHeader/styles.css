@@ -1,0 +1,13 @@
+.prismic-cms-card_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    border-radius: 14px 14px 0 0;
+    border-bottom: solid 1px #e3e5ed;
+    box-shadow: 0 1px 1px 0 #e3e5ed;
+    color: #1ad1a3;
+    font-size: 18px;
+    height: 64px;
+    padding: 0 24px;
+}
