@@ -8,14 +8,13 @@ export default function QueryFullText(props) {
 
 QueryFullText.propTypes = {
     /** Defines what the query will be looking for. The different paths available are:
-     * 'document', 'document.type', 'document.id', 'document.tags',
-     * 'document.first_publication_date', 'document.last_publication_date' and
-     * 'my.{custom-type}.{field}'. The last path is in the format 'my.{custom-type}.{field}'
+     * 'document' and 'my.{custom-type}.{field}'.
+     * The last path is in the format 'my.{custom-type}.{field}'
      * where {custom-type} is the API ID of the custom type you want to
      * query and {field} is the API ID of the specific field in the custom type that you need. */
     path: PropTypes.string.isRequired,
     /** Defines the value that the query is looking for. */
-    value: PropTypes.any,
+    value: PropTypes.string,
     /** The componet used to render the queried data. */
     component: PropTypes.func,
     /** It will remove all the documents except for those after the specified document in the list.

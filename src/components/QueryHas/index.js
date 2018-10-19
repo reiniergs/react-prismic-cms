@@ -2,23 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
-export default function QueryNot(props) {
-    return <Query {...props} predicate="not" />;
+export default function QueryHas(props) {
+    return <Query {...props} predicate="has" />;
 }
 
-QueryNot.propTypes = {
-    /** Defines what the query will be looking for. The different paths available are:
-     * 'document.type', 'document.id', 'document.tags', and 'my.{custom-type}.{field}'.
-     * The last path is in the format 'my.{custom-type}.{field}' where {custom-type} is
-     * the API ID of the custom type you want to query and {field} is the API ID of the
-     * specific field in the custom type that you need. */
+QueryHas.propTypes = {
+    /** Defines what the query will be looking for. The only path available is
+     * 'my.{custom-type}.{field}', where {custom-type} is the API ID of the custom
+     * type you want to query and {field} is the API ID of the specific field in
+     * the custom type that you need. */
     path: PropTypes.string.isRequired,
-    /** Defines the value that the query is looking for. */
-    value: PropTypes.oneOfType([
-        PropTypes.number,
-        PropTypes.string,
-        PropTypes.array,
-    ]),
     /** The componet used to render the queried data. */
     component: PropTypes.func,
     /** It will remove all the documents except for those after the specified document in the list.
@@ -56,8 +49,7 @@ QueryNot.propTypes = {
     pageSize: PropTypes.number,
 };
 
-QueryNot.defaultProps = {
-    value: '',
+QueryHas.defaultProps = {
     component: undefined,
     after: undefined,
     fetch: undefined,
