@@ -17,6 +17,8 @@ const VALID_PREDICATES = [
     'missing',
     'similar',
     'near',
+    'lt',
+    'gt',
 ];
 
 export default function (props) {
@@ -119,6 +121,8 @@ Query.propTypes = {
         'missing',
         'similar',
         'near',
+        'lt',
+        'gt',
     ]),
     path: PropTypes.string,
     value: PropTypes.any,
