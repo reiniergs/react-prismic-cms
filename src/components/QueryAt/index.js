@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactJson from 'react-json-view';
 import Query from '../Query';
 
 export default function QueryAt(props) {
@@ -10,9 +9,10 @@ export default function QueryAt(props) {
 QueryAt.propTypes = {
     /** Defines what the query will be looking for. The different paths available are:
      * 'document.type', 'document.id', 'document.tags', 'document.first_publication_date',
-     * 'document.last_publication_date' and 'my.{custom-type}.{field}'. The last path is in the format
-     * 'my.{custom-type}.{field}' where {custom-type} is the API ID of the custom type you want to
-     * query and {field} is the API ID of the specific field in the custom type that you need. */
+     * 'document.last_publication_date' and 'my.{custom-type}.{field}'. The last path is
+     * in the format 'my.{custom-type}.{field}' where {custom-type} is the API ID
+     * of the custom type you want to query and {field} is the API ID of the specific
+     * field in the custom type that you need. */
     path: PropTypes.string.isRequired,
     /** Defines the value that the query is looking for. */
     value: PropTypes.any,
@@ -20,21 +20,20 @@ QueryAt.propTypes = {
     component: PropTypes.func,
     /** It will remove all the documents except for those after the specified document in the list.
      * By reversing the orderings in your query, you can use this same method to retrieve all
-     * the documents before the specified document.
-     */
+     * the documents before the specified document. */
     after: PropTypes.string,
     /** It is used to make queries faster by only retrieving the specified field(s). */
     fetch: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.array,
+        PropTypes.string,
+        PropTypes.array,
     ]),
     /** It allows you to retrieve a specific content field from a linked document and
      * add it to the document response object.
      * This props needs to take the following format:
      * '{custom-type}.{field}' or ['{custom-type}.{field}', '{other-custom-type}.{field}'] */
     fetchLinks: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.array,
+        PropTypes.string,
+        PropTypes.array,
     ]),
     /** It will order the results by the specified field(s).
      * You can specify as many fields as you want.
@@ -49,14 +48,14 @@ QueryAt.propTypes = {
     /** The page option defines the pagination for the result of your query.
      * This value defaults to "1", corresponding to the first page. */
     page: PropTypes.number,
-    /** The pageSize option defines the maximum number of documents that the API will return for your query.
-     * This value defaults to 20, max is 100. */
+    /** The pageSize option defines the maximum number of documents that the API
+     * will return for your query. This value defaults to 20, max is 100. */
     pageSize: PropTypes.number,
 };
 
 QueryAt.defaultProps = {
     value: '',
-    component: props => <ReactJson src={props.response} />,
+    component: undefined,
     after: undefined,
     fetch: undefined,
     fetchLinks: undefined,

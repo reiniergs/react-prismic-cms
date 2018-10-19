@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactJson from 'react-json-view';
-import Query from './../Query';
+import Query from '../Query';
 
 const predicatesMap = {
     QueryAt: 'at',
@@ -12,7 +11,7 @@ const predicatesMap = {
     QueryHas: 'has',
     QueryMissing: 'missing',
     QuerySimilar: 'similar',
-}
+};
 
 export default function QueryMulti(props) {
     const { children } = props;
@@ -29,9 +28,10 @@ export default function QueryMulti(props) {
                 value,
             };
         }
+        return null;
     });
     return <Query {...props} multiPredicates={predicates} />;
-};
+}
 
 QueryMulti.propTypes = {
     /** The componet used to render the queried data. */
@@ -67,8 +67,8 @@ QueryMulti.propTypes = {
     /** The page option defines the pagination for the result of your query.
      * This value defaults to "1", corresponding to the first page. */
     page: PropTypes.number,
-    /** The pageSize option defines the maximum number of documents that the API will return for your query.
-     * This value defaults to 20, max is 100. */
+    /** The pageSize option defines the maximum number of documents that the API
+     * will return for your query. This value defaults to 20, max is 100. */
     pageSize: PropTypes.number,
     /**
      * This prop should not be visible in the documentation.
@@ -81,11 +81,12 @@ QueryMulti.propTypes = {
 };
 
 QueryMulti.defaultProps = {
-    component: props => <ReactJson src={props.response} />,
+    component: undefined,
     after: undefined,
     fetch: undefined,
     fetchLinks: undefined,
     orderings: undefined,
     page: 1,
     pageSize: 20,
+    children: null,
 };
