@@ -58,6 +58,9 @@ class Query extends Component {
         if (multiPredicates) {
             return resolveMultiPredicates(multiPredicates);
         }
+        if (predicate === 'inRange') {
+            return Prismic.Predicates.inRange(path, value.lowerLimit, value.upperLimit);
+        }
         if (VALID_PREDICATES.indexOf(predicate) !== -1) {
             return Prismic.Predicates[predicate](path, value);
         }
@@ -123,6 +126,7 @@ Query.propTypes = {
         'near',
         'lt',
         'gt',
+        'inRange',
     ]),
     path: PropTypes.string,
     value: PropTypes.any,
