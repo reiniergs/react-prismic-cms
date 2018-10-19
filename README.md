@@ -14,12 +14,31 @@ $ yarn add react-prismic-cms
 
 ## Usage
 
-```html
-<Prismic repo={your-repo-name}>
-    <QueryAt path="document.type" value="vegetables" component={component}/>
-</Prismic>
+```jsx
+import React from "react";
+import ReactDOM from "react-dom";
+import Prismic from "react-prismic-cms/components/Prismic";
+import QueryAt from "react-prismic-cms/components/QueryAt";
+import Vegetables from "./vegetables";
+import "./styles.css";
+
+function App() {
+  return (
+    <div className="App">
+      <Prismic repo="react-prismic-cms">
+        <QueryAt
+          path="document.type"
+          value="vegetables"
+          component={Vegetables}
+        />
+      </Prismic>
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
 ```
 
-The component is going to be instantiated inside of QueryAt and is going to receive 
-prismic `response`.  
+[![Edit 4x20k907n0](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/4x20k907n0)
 
