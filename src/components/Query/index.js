@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Prismic from 'prismic-javascript';
 import ReactJson from 'react-json-view';
-import Context from './../Prismic/context';
+import Context from '../Prismic/context';
 import resolveMultiPredicates from './resolve-multi-predicates';
 import shouldFetch from './should-fetch';
 
@@ -18,10 +19,10 @@ const VALID_PREDICATES = [
     'near',
 ];
 
-export default function(props) {
+export default function (props) {
     return (
         <Context.Consumer>
-            { context => <Query {...context} {...props} /> }
+            {context => <Query {...context} {...props} />}
         </Context.Consumer>
     );
 }
@@ -31,7 +32,7 @@ class Query extends Component {
         super(props);
         this.state = {
             isLoading: false,
-        }
+        };
     }
 
     componentDidMount() {
@@ -45,7 +46,13 @@ class Query extends Component {
     }
 
     resolvePredicate() {
-        const { predicate, path, value, multiPredicates } = this.props;
+        const {
+            predicate,
+            path,
+            value,
+            multiPredicates,
+        } = this.props;
+
         if (multiPredicates) {
             return resolveMultiPredicates(multiPredicates);
         }
@@ -70,18 +77,16 @@ class Query extends Component {
 
         this.setState({ isLoading: true });
 
-        Prismic.getApi(`https://${repo}.prismic.io/api/v2`).then((api) => {
-            return api.query(this.resolvePredicate(), {
-                after,
-                fetch,
-                fetchLinks,
-                lang,
-                orderings,
-                page,
-                pageSize,
-                ref,
-            });
-        }).then((response) => {
+        Prismic.getApi(`https://${repo}.prismic.io/api/v2`).then(api => api.query(this.resolvePredicate(), {
+            after,
+            fetch,
+            fetchLinks,
+            lang,
+            orderings,
+            page,
+            pageSize,
+            ref,
+        })).then((response) => {
             this.setState({ response, isLoading: false });
         }).catch((error) => {
             this.setState({ error, isLoading: false });
@@ -90,14 +95,15 @@ class Query extends Component {
 
     render() {
         const { response, error, isLoading } = this.state;
-        const { component: Component, ...rest } = this.props;
+        const { component: RendererComponent, ...rest } = this.props;
 
         return (
-            <Component
+            <RendererComponent
                 {...rest}
                 response={response}
                 error={error}
-                isLoading={isLoading} />
+                isLoading={isLoading}
+            />
         );
     }
 }
@@ -136,7 +142,7 @@ Query.defaultProps = {
     predicate: 'at',
     path: 'document.type',
     value: '',
-    component: props => <ReactJson src={props.response} />,
+    component: ({ response }) => <ReactJson src={response} />,
     after: undefined,
     fetch: undefined,
     fetchLinks: undefined,

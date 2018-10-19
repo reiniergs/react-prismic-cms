@@ -8,58 +8,58 @@ import ShareIcon from './shareIcon';
 import './styles.css';
 
 function CardItems({ results }) {
-  return results.map(({ data, id }) => (
-    <Card
-      className="prismic-cms-card-item"
-      key={id}
-      actions={(
-        <ButtonIcon
-          variant="border-filled"
-          icon={<ShareIcon />}
-        />
-)}
-      footer={(
-        <div className="prismic-cms-card-item_content">
-          <h1 className="prismic-cms-card-item_header">{data.name[0].text}</h1>
-          <p className="prismic-cms-card-item_description">{data.description[0].text}</p>
-          <Button
-            className="prismic-cms-card-item_button"
-            variant="outline-brand"
-            label="More"
-          />
-        </div>
-)}
-    >
-      <div className="prismic-cms-card-item_img-container">
-        <img src={data.image.url} alt="" />
-      </div>
-    </Card>
-  ));
+    return results.map(({ data, id }) => (
+        <Card
+            className="prismic-cms-card-item"
+            key={id}
+            actions={(
+                <ButtonIcon
+                    variant="border-filled"
+                    icon={<ShareIcon />}
+                />
+            )}
+            footer={(
+                <div className="prismic-cms-card-item_content">
+                    <h1 className="prismic-cms-card-item_header">{data.name[0].text}</h1>
+                    <p className="prismic-cms-card-item_description">{data.description[0].text}</p>
+                    <Button
+                        className="prismic-cms-card-item_button"
+                        variant="outline-brand"
+                        label="More"
+                    />
+                </div>
+            )}
+        >
+            <div className="prismic-cms-card-item_img-container">
+                <img src={data.image.url} alt="" />
+            </div>
+        </Card>
+    ));
 }
 
 export default function ExampleCard(props) {
-  const { className, style, response } = props;
+    const { className, style, response } = props;
 
-  const getContainerClassNames = () => classnames('prismic-cms-card_content', className);
+    const getContainerClassNames = () => classnames('prismic-cms-card_content', className);
 
-  if (response && Array.isArray(response.results)) {
-    return (
-      <div className={getContainerClassNames()} style={style}>
-        <CardItems results={response.results} />
-      </div>
-    );
-  }
-  return null;
+    if (response && Array.isArray(response.results)) {
+        return (
+            <div className={getContainerClassNames()} style={style}>
+                <CardItems results={response.results} />
+            </div>
+        );
+    }
+    return null;
 }
 
 ExampleCard.propTypes = {
-  className: PropTypes.string,
-  style: PropTypes.object,
-  response: PropTypes.object,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    response: PropTypes.object,
 };
 
 ExampleCard.defaultProps = {
-  className: undefined,
-  style: undefined,
-  response: null,
+    className: undefined,
+    style: undefined,
+    response: null,
 };

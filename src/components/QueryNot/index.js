@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactJson from 'react-json-view';
 import Query from '../Query';
 
 export default function QueryNot(props) {
@@ -10,9 +9,10 @@ export default function QueryNot(props) {
 QueryNot.propTypes = {
     /** Defines what the query will be looking for. The different paths available are:
      * 'document.type', 'document.id', 'document.tags', 'document.first_publication_date',
-     * 'document.last_publication_date' and 'my.{custom-type}.{field}'. The last path is in the format
-     * 'my.{custom-type}.{field}' where {custom-type} is the API ID of the custom type you want to
-     * query and {field} is the API ID of the specific field in the custom type that you need. */
+     * 'document.last_publication_date' and 'my.{custom-type}.{field}'. The last path is
+     * in the format 'my.{custom-type}.{field}' where {custom-type} is the API ID of the
+     * custom type you want to query and {field} is the API ID of the specific field
+     * in the custom type that you need. */
     path: PropTypes.string.isRequired,
     /** Defines the value that the query is looking for. */
     value: PropTypes.any,
@@ -48,14 +48,14 @@ QueryNot.propTypes = {
     /** The page option defines the pagination for the result of your query.
      * This value defaults to "1", corresponding to the first page. */
     page: PropTypes.number,
-    /** The pageSize option defines the maximum number of documents that the API will return for your query.
-     * This value defaults to 20, max is 100. */
+    /** The pageSize option defines the maximum number of documents that the API
+     * will return for your query. This value defaults to 20, max is 100. */
     pageSize: PropTypes.number,
 };
 
 QueryNot.defaultProps = {
     value: '',
-    component: props => <ReactJson src={props.response} />,
+    component: undefined,
     after: undefined,
     fetch: undefined,
     fetchLinks: undefined,
