@@ -19,6 +19,21 @@ const VALID_PREDICATES = [
     'near',
     'lt',
     'gt',
+    'dateAfter',
+    'dateBefore',
+    'dayOfMonth',
+    'dayOfMonthAfter',
+    'dayOfMonthBefore',
+    'dayOfWeek',
+    'dayOfWeekAfter',
+    'dayOfWeekBefore',
+    'month',
+    'monthAfter',
+    'monthBefore',
+    'year',
+    'hour',
+    'hourAfter',
+    'hourBefore',
 ];
 
 export default function (props) {
@@ -60,6 +75,9 @@ class Query extends Component {
         }
         if (predicate === 'inRange') {
             return Prismic.Predicates.inRange(path, value.lowerLimit, value.upperLimit);
+        }
+        if (predicate === 'dateBetween') {
+            return Prismic.Predicates.dateBetween(path, value.startDate, value.endDate);
         }
         if (VALID_PREDICATES.indexOf(predicate) !== -1) {
             return Prismic.Predicates[predicate](path, value);
@@ -127,6 +145,22 @@ Query.propTypes = {
         'lt',
         'gt',
         'inRange',
+        'dateAfter',
+        'dateBefore',
+        'dateBetween',
+        'dayOfMonth',
+        'dayOfMonthAfter',
+        'dayOfMonthBefore',
+        'dayOfWeek',
+        'dayOfWeekAfter',
+        'dayOfWeekBefore',
+        'month',
+        'monthAfter',
+        'monthBefore',
+        'year',
+        'hour',
+        'hourAfter',
+        'hourBefore',
     ]),
     path: PropTypes.string,
     value: PropTypes.any,
