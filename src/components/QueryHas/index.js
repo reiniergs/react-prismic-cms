@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryHas predicate checks whether a fragment has a value. Note that this predicate will
+* restrict the results to the custom type implied in the path.
+*/
 export default function QueryHas(props) {
     return <Query {...props} predicate="has" />;
 }

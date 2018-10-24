@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryIn predicate is used specifically to retrieve an array of documents by their IDs or UIDs.
+* This predicate is much more efficient at this than the any predicate.
+* This returns the documents in the same order as the passed array.
+*/
 export default function QueryIn(props) {
     return <Query {...props} predicate="in" />;
 }

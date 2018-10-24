@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QuerySimilar predicate takes the ID of a document, and returns a
+* list of documents with similar content. This allows you to build an
+* automated content discovery feature (for example, a "Related posts" section).
+*/
 export default function QuerySimilar(props) {
     return <Query {...props} predicate="similar" />;
 }

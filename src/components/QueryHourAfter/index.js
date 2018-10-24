@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryHourAfter predicate checks that the value in the path occurs after
+* the hour value passed into the predicate. This uses the 24 hour system,
+* starting at 0 and going through 23.
+*/
 export default function QueryHourAfter(props) {
     return <Query {...props} predicate="hourAfter" />;
 }

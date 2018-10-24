@@ -2,6 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* Whit the QueryFulltext you can search a document or a text fragment for either
+* just one term or for multiple terms. To search for more than one term, put all
+* the terms into a string with spaces between them
+* The full document search and specific field search works on the following fields:
+* Rich Text, Title, Key Text, UID, Select.
+*/
 export default function QueryFullText(props) {
     return <Query {...props} predicate="fulltext" />;
 }

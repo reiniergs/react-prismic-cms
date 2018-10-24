@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryDayOfMonth predicate checks that the value in the path
+* is equal to the day of the month passed into the predicate.
+*/
 export default function QueryDayOfMonth(props) {
     return <Query {...props} predicate="dayOfMonth" />;
 }

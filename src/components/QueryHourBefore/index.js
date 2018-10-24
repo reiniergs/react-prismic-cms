@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryHourBefore predicate checks that the value in the path occurs before the hour
+* value passed into the predicate.
+*/
 export default function QueryHourBefore(props) {
     return <Query {...props} predicate="hourBefore" />;
 }

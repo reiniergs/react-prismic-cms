@@ -2,6 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryHour predicate checks that the value in the path occurs within the
+* hour value passed into the predicate.bThis uses the 24 hour system, starting
+* at 0 and going through 23. Note that this predicate will technically work for a
+* Date field, but won’t be very useful. All date field values are automatically given an hour of 0.
+*/
 export default function QueryHour(props) {
     return <Query {...props} predicate="hour" />;
 }

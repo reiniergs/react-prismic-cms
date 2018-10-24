@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryMonth predicate checks that the value in the path occurs in the
+* month value passed into the predicate.
+*/
 export default function QueryMonth(props) {
     return <Query {...props} predicate="month" />;
 }
