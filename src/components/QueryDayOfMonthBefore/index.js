@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Query from '../Query';
 
 /**
-* The QueryDayOfMonthBefore predicate checks that the value in the path
-* is before the day of the month passed into the predicate.
+* The QueryDayOfMonthBefore checks that the value in the path
+* is before the day of the month passed.
 */
 export default function QueryDayOfMonthBefore(props) {
     return <Query {...props} predicate="dayOfMonthBefore" />;

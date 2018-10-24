@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Query from '../Query';
 
 /**
-* The QueryGreaterThan predicate checks that the value in the number field is greater than
-* the value passed into the predicate.
+* The QueryGreaterThan checks that the value in the number field is greater than
+* the value passed.
 */
 export default function QueryGreaterThan(props) {
     return <Query {...props} predicate="gt" />;

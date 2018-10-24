@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Query from '../Query';
 
 /**
-* The QueryAny predicate takes an array of values. It works exactly the same
+* The QueryAny takes an array of values. It works exactly the same
 * way as the at operator, but checks whether the fragment matches any of the values in the array.
 */
 export default function QueryAny(props) {

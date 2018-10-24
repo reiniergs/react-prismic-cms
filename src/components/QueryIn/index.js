@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Query from '../Query';
 
 /**
-* The QueryIn predicate is used specifically to retrieve an array of documents by their IDs or UIDs.
-* This predicate is much more efficient at this than the any predicate.
+* The QueryIn is used specifically to retrieve an array of documents by their IDs or UIDs.
+* This component is much more efficient at this than the QueryAny.
 * This returns the documents in the same order as the passed array.
 */
 export default function QueryIn(props) {

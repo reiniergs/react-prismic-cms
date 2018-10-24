@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Query from '../Query';
 
 /**
-* The QueryMonthAfter predicate checks that the value in the path occurs in any month after
-* the value passed into the predicate.
+* The QueryMonthAfter checks that the value in the path occurs in any month after
+* the value passed.
 */
 export default function QueryMonthAfter(props) {
     return <Query {...props} predicate="monthAfter" />;

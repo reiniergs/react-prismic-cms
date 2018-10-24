@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import Query from '../Query';
 
 /**
-* The QueryNot predicate checks that the path doesn't match the provided value exactly.
-* It takes a single value as the argument.
+* The QueryNot checks that the path doesn't match the provided value exactly.
 */
 export default function QueryNot(props) {
     return <Query {...props} predicate="not" />;

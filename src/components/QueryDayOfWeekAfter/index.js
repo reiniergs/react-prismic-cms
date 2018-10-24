@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Query from '../Query';
 
 /**
-* The QueryDayOfWeekAfter predicate checks that the value in the path
-* is after the day of the week passed into the predicate.
+* The QueryDayOfWeekAfter checks that the value in the path
+* is after the day of the week passed.
 */
 export default function QueryDayOfWeekAfter(props) {
     return <Query {...props} predicate="dayOfWeekAfter" />;

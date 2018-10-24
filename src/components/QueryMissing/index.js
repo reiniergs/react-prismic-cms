@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Query from '../Query';
 
 /**
-* The QueryMissing predicate checks if a fragment doesn't have a value.
-* Note that this predicate will restrict the results to the custom type implied in the path.
+* The QueryMissing checks if a fragment doesn't have a value.
+* Note that this component will restrict the results to the custom type implied in the path.
 */
 export default function QueryMissing(props) {
     return <Query {...props} predicate="missing" />;

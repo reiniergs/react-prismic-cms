@@ -5,7 +5,7 @@ import Query from '../Query';
 /**
 * Whit the QueryFulltext you can search a document or a text fragment for either
 * just one term or for multiple terms. To search for more than one term, put all
-* the terms into a string with spaces between them
+* the terms into a string with spaces between them.
 * The full document search and specific field search works on the following fields:
 * Rich Text, Title, Key Text, UID, Select.
 */

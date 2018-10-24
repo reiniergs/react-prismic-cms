@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Query from '../Query';
 
 /**
-* The QueryAt predicate checks that the path matches the described value exactly.
+* The QueryAt checks that the path matches the described value exactly.
 * It takes a single value for a field or an array (only for tags).
 */
 export default function QueryAt(props) {

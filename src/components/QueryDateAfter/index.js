@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Query from '../Query';
 
 /**
-* The QueryDateAfter predicate checks that the value in the path
-* is after the date value passed into the predicate.
+* The QueryDateAfter checks that the value in the path
+* is after the date value passed.
 */
 export default function QueryDateAfter(props) {
     return <Query {...props} predicate="dateAfter" />;
