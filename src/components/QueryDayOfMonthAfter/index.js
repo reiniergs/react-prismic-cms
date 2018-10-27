@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryDayOfMonthAfter checks that the value in the path
+* is after the day of the month passed.
+*/
 export default function QueryDayOfMonthAfter(props) {
     return <Query {...props} predicate="dayOfMonthAfter" />;
 }

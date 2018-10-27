@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryDateBetween checks that the value in the path
+* is within the date values passed.
+*/
 export default function QueryDateBetween(props) {
     return <Query {...props} predicate="dateBetween" />;
 }

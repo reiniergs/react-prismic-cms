@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryDateBefore checks that the value in the path
+* is before the date value passed.
+*/
 export default function QueryDateBefore(props) {
     return <Query {...props} predicate="dateBefore" />;
 }

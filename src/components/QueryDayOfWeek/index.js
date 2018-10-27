@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryDayOfWeek checks that the value in the path
+* is equal to the day of the week passed.
+*/
 export default function QueryDayOfWeek(props) {
     return <Query {...props} predicate="dayOfWeek" />;
 }

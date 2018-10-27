@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryYear checks that the value in the path occurs in the year
+* value passed.
+*/
 export default function QueryYear(props) {
     return <Query {...props} predicate="year" />;
 }

@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryNot checks that the path doesn't match the provided value exactly.
+*/
 export default function QueryNot(props) {
     return <Query {...props} predicate="not" />;
 }

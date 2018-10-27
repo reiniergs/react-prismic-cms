@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryDayOfWeekBefore checks that the value in the path
+* is before the day of the week passed.
+*/
 export default function QueryDayOfWeekBefore(props) {
     return <Query {...props} predicate="dayOfWeekBefore" />;
 }

@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryInRange checks that the value in the path is within the
+* two values passed.
+*/
 export default function QueryInRange(props) {
     return <Query {...props} predicate="inRange" />;
 }

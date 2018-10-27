@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryMonthBefore checks that the value in the path occurs in any month
+* before the value passed.
+*/
 export default function QueryMonthBefore(props) {
     return <Query {...props} predicate="monthBefore" />;
 }

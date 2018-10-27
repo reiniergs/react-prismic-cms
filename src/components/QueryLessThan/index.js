@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Query from '../Query';
 
+/**
+* The QueryLessThan checks that the value in the number field is less than the
+* value passed.
+*/
 export default function QueryLessThan(props) {
     return <Query {...props} predicate="lt" />;
 }
