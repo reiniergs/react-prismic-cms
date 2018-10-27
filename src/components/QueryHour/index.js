@@ -4,7 +4,7 @@ import Query from '../Query';
 
 /**
 * The QueryHour checks that the value in the path occurs within the
-* hour value passed into the predicate.This uses the 24 hour system, starting
+* hour value passed.This uses the 24 hour system, starting
 * at 0 and going through 23. All date field values are automatically given an hour of 0.
 */
 export default function QueryHour(props) {
