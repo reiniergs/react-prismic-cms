@@ -4,7 +4,8 @@ import Query from '../Query';
 
 /**
 * The QueryAny takes an array of values. It works exactly the same
-* way as the QueryAt component, but checks whether the fragment matches any of the values in the array.
+* way as the QueryAt component, but checks whether the fragment matches
+* any of the values in the array.
 */
 export default function QueryAny(props) {
     return <Query {...props} predicate="any" />;
