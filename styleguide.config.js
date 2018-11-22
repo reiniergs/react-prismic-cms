@@ -12,6 +12,7 @@ module.exports = withRainbowStyles({
     ],
     skipComponentsWithoutExample: true,
     pagePerSection: true,
+    assetsDir: 'public',
     ribbon: { url: 'https://github.com/reiniergs/react-prismic-cms' },
     template: {
         favicon: 'https://react-prismic-cms.firebaseapp.com/favicon.ico',
