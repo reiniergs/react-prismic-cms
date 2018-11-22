@@ -1,3 +1,6 @@
+
+<img src="/images/overview-image.svg" style="padding: 32px; " />
+
 ### Take the stress out of managing a website. By nature, content management systems support the separation of content and presentation. This is what you will accomplish with this  React Library on top of Prismic.io
 
 ### react-prismic-cms is available as an <a href="https://www.npmjs.com/package/react-prismic-cms" target="_blank">npm package</a>
