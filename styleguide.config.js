@@ -15,6 +15,17 @@ module.exports = withRainbowStyles({
     ribbon: { url: 'https://github.com/reiniergs/react-prismic-cms' },
     sections: [
         {
+            name: 'Getting started',
+            sectionDepth: 1,
+            content: 'docs/usage.md',
+            sections: [
+                {
+                    name: 'Usage',
+                    content: 'docs/usage.md',
+                },
+            ],
+        },
+        {
             name: 'Query Components',
             components: 'src/components/**/index.js',
             sectionDepth: 1,
