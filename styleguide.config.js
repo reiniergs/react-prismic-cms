@@ -47,7 +47,7 @@ module.exports = withRainbowStyles({
     },
     sections: [
         {
-            name: 'Getting started',
+            name: 'Getting Started',
             sectionDepth: 1,
             content: 'docs/overview.md',
             sections: [
