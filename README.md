@@ -1,6 +1,6 @@
 # React Prismic CMS
 
-Set of declarative components to query content published in the headless CMS prismic.io
+Set of declarative components to query content published in the headless CMS [prismic.io](https://prismic.io/)
 
 [![CircleCI](https://circleci.com/gh/reiniergs/react-prismic-cms.svg?style=svg)](https://circleci.com/gh/reiniergs/react-prismic-cms)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
