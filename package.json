@@ -1,6 +1,6 @@
 {
     "name": "react-prismic-cms",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "main": "components/index.js",
     "dependencies": {
         "classnames": "^2.2.6",
