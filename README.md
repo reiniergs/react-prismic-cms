@@ -1,4 +1,6 @@
-# React Prismic CMS
+<h2 align="center">
+<a href="https://react-prismic-cms.firebaseapp.com/" rel="noopener" target="_blank">React Prismic CMS</a>
+</h2>
 
 Set of declarative components to query content published in the headless CMS prismic.io
 
