@@ -10,6 +10,8 @@
 /build
 components
 !src/components
+library
+!src/library
 styleguide
 
 # misc
@@ -18,6 +20,7 @@ styleguide
 .env.development.local
 .env.test.local
 .env.production.local
+package-lock.json
 
 npm-debug.log*
 yarn-debug.log*
