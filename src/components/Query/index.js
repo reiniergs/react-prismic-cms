@@ -6,6 +6,7 @@ import ReactJson from 'react-json-view';
 import Context from '../Prismic/context';
 import resolveMultiPredicates from './resolve-multi-predicates';
 import shouldFetch from './should-fetch';
+import makeCancelablePromise from './make-cancelable-promise';
 
 const VALID_PREDICATES = [
     'at',
@@ -62,6 +63,10 @@ class Query extends Component {
         }
     }
 
+    componentWillUnmount() {
+        this.cancelablePromise.cancel();
+    }
+
     resolvePredicate() {
         const {
             predicate,
@@ -85,7 +90,7 @@ class Query extends Component {
         return Prismic.Predicates.at(path, value);
     }
 
-    fetch() {
+    queryPrismic() {
         const {
             repo,
             lang,
@@ -98,22 +103,34 @@ class Query extends Component {
             pageSize,
         } = this.props;
 
-        this.setState({ isLoading: true });
+        return Prismic.getApi(`https://${repo}.prismic.io/api/v2`)
+            .then(api => api.query(this.resolvePredicate(), {
+                after,
+                fetch,
+                fetchLinks,
+                lang,
+                orderings,
+                page,
+                pageSize,
+                ref,
+            }));
+    }
 
-        Prismic.getApi(`https://${repo}.prismic.io/api/v2`).then(api => api.query(this.resolvePredicate(), {
-            after,
-            fetch,
-            fetchLinks,
-            lang,
-            orderings,
-            page,
-            pageSize,
-            ref,
-        })).then((response) => {
-            this.setState({ response, isLoading: false });
-        }).catch((error) => {
-            this.setState({ error, isLoading: false });
-        });
+    fetch() {
+        this.setState({ isLoading: true });
+        this.cancelablePromise = makeCancelablePromise(
+            this.queryPrismic(),
+        );
+        this.cancelablePromise
+            .promise
+            .then((response) => {
+                this.setState({ response, isLoading: false });
+            })
+            .catch((error) => {
+                if (!error.isCanceled) {
+                    this.setState({ error, isLoading: false });
+                }
+            });
     }
 
     render() {
